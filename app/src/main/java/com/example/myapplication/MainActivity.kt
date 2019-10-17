@@ -1,7 +1,7 @@
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +11,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btn.setOnClickListener {
             throw Exception("123")
+        }
+        btn2.setOnClickListener {
+            object : Thread() {
+                override fun run() {
+                    throw Exception("123")
+                }
+            }.start()
         }
     }
 }
